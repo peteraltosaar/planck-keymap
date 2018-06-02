@@ -28,8 +28,7 @@ enum planck_layers {
   _PLOVER,
   _ADJUST,
   _ARROW,
-  _NUM,
-  _INBOX
+  _INTJ
 };
 
 enum planck_keycodes {
@@ -45,7 +44,7 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
-#define NUM MO(_NUM)
+#define INTJ MO(_INTJ)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -64,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {LT(ARROW,KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {LT(NUM,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Colemak
@@ -207,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
  
-[_NUM] = {
+[_INTJ] = {
   {_______, LCTL(KC_F4), _______, LCTL(KC_F2), LSFT(LALT(KC_F10)), _______, _______, KC_KP_7, KC_KP_8, LCTL(KC_F12), LALT(KC_F1), PW },
   {_______, _______, LCTL(LALT(LSFT(KC_N))), _______, LALT(KC_F1), _______, _______, LCTL(LALT(KC_LEFT)), KC_KP_5, LCTL(LALT(KC_RIGHT)), _______, _______ },
   {_______, _______, LCTL(LSFT(KC_F10)), _______, _______, _______, LCTL(LSFT(KC_N)), KC_KP_1, KC_KP_2, KC_KP_3, _______, _______ },
