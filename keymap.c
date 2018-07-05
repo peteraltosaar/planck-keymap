@@ -158,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Close|      |  End |  Run |      |      |Usages|Prev_M|Outlin|OpenIn|  PW  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |Rename|Symbol|      | Open |      |Hierar| Prev |Next_M| Next |      |      |
+ * |      |Rename|Symbol|      | Open |  VCS |Hierar| Prev |Next_M| Next |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |Run It|Create|      |      | File | Menu |      |      |      |      |
+ * |      |      |Run It|Create|      |      | File | Menu |      |      | Info |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |    KP_0     |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -168,8 +168,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  
 [_INTJ] = {
   {_______, LCTL(KC_F4), _______, LCTL(KC_F2), LSFT(LALT(KC_F10)), _______, _______, LALT(KC_F7), LALT(KC_UP), LCTL(KC_F12), LALT(KC_F1), PW },
-  {_______, LSFT(KC_F6), LCTL(LALT(LSFT(KC_N))), _______, LALT(KC_F1), _______, LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), _______, _______ },
-  {_______, _______, LCTL(LSFT(KC_F10)), LALT(KC_INS), _______, _______, LCTL(LSFT(KC_N)), LSFT(LALT(KC_SCLN)), _______, _______, _______, _______ },
+  {_______, LSFT(KC_F6), LCTL(LALT(LSFT(KC_N))), _______, LALT(KC_F1), LALT(KC_TILD), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), _______, _______ },
+  {_______, _______, LCTL(LSFT(KC_F10)), LALT(KC_INS), _______, _______, LCTL(LSFT(KC_N)), LSFT(LALT(KC_SCLN)), _______, _______, LCTL(KC_F1), _______ },
   {_______, _______, _______, _______, _______, LCTL(LALT(KC_SCLN)), LCTL(LALT(KC_SCLN)), _______, _______, _______, _______, _______ }
 }
 
