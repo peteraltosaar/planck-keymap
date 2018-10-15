@@ -26,7 +26,8 @@ enum planck_layers {
   _PLOVER,
   _ADJUST,
   _ARROW,
-  _INTJ
+  _INTJ,
+  _NUMPAD
 };
 
 enum planck_keycodes {
@@ -43,6 +44,7 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
 #define INTJ MO(_INTJ)
+#define NUMPAD MO(_NUMPAD)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -54,14 +56,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | IntJ | Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * | IntJ | Ctrl | Alt  | GUI  |Lower |Space |NumPad|Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {LT(ARROW,KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(NUMPAD,KC_KP_0),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
@@ -173,6 +175,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, LCTL(LALT(LSFT(KC_N))), _______, LALT(KC_F1), LALT(KC_GRV), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), _______, _______ },
   {_______, LSFT(KC_F11), LCTL(LSFT(KC_F10)), LALT(KC_INS), LCTL(KC_F11), KC_F11, LCTL(LSFT(KC_N)), LSFT(LALT(KC_SCLN)), _______, _______, LCTL(KC_F1), _______ },
   {_______, _______, _______, _______, _______, LCTL(LALT(KC_SCLN)), LCTL(LALT(KC_SCLN)), _______, _______, _______, _______, _______ }
+},
+
+/* Numpad
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      | KP_7 | KP_8 | KP_8 |      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      | KP_4 | KP_5 | KP_6 |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      | KP_1 | KP_2 | KP_3 |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+ 
+[_NUMPAD] = {
+  {_______, _______, _______, _______, _______, _______, _______, KC_KP_7, KC_KP_8, KC_KP_9, _______, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, _______, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, KC_KP_1, KC_KP_2, KC_KP_3, _______, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 }
 
 };
