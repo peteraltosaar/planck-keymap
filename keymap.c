@@ -27,7 +27,7 @@ enum planck_layers {
   _ADJUST,
   _ARROW,
   _INTJ,
-  _NUMPAD
+  _MACOS
 };
 
 enum planck_keycodes {
@@ -44,7 +44,7 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
 #define INTJ MO(_INTJ)
-#define NUMPAD MO(_NUMPAD)
+#define MACOS MO(_MACOS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {LT(ARROW,KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(NUMPAD,KC_KP_0),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(MACOS,KC_KP_0),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
@@ -177,22 +177,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, _______, _______, _______, LCTL(LALT(KC_SCLN)), LCTL(LALT(KC_SCLN)), _______, _______, _______, _______, _______ }
 },
 
-/* Numpad
+/* MacOs Nav
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      | KP_7 | KP_8 | KP_8 |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |      |      |      |      | KP_4 | KP_5 | KP_6 |      |      |
+ * |      |      |      |      |      |      |      | Spc1 | Spc2 | Spc3 | Spc4 |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      | KP_1 | KP_2 | KP_3 |      |      |
+ * |      |      |      |      |      |      |      | Spc5 | Spc6 | Spc7 | Spc8 |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
  
-[_NUMPAD] = {
-  {_______, _______, _______, _______, _______, _______, _______, KC_KP_7, KC_KP_8, KC_KP_9, _______, _______ },
-  {_______, _______, _______, _______, _______, _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, _______, _______ },
-  {_______, _______, _______, _______, _______, _______, _______, KC_KP_1, KC_KP_2, KC_KP_3, _______, _______ },
+[_MACOS] = {
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, LCTL(KC_1), LCTL(KC_2), LCTL(KC_3), LCTL(KC_4), _______ },
+  {_______, _______, _______, _______, _______, _______, _______, LCTL(KC_5), LCTL(KC_6), LCTL(KC_7), LCTL(KC_8), _______ },
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 }
 
