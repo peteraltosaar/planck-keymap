@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {LT(ARROW,KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(MACOS,KC_KP_0),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(MACOS,KC_ENT),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
@@ -155,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, KC_F1, KC_F2, KC_F3, KC_F4, _______, _______, _______, KC_UP, _______, _______, _______ },
   {_______, KC_F5, KC_F6, KC_F7, KC_F8, _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, _______, KC_MENU },
   {_______, KC_F9, KC_F10, KC_F11, KC_F12, _______, KC_END, _______, _______, _______, _______, _______ },
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
+  {_______, _______, _______, _______, _______, _______, KC_BSPC, _______, _______, _______, _______, _______ }
 },
 
 /* IntelliJ (Fn)
