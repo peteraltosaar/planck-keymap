@@ -27,7 +27,7 @@ enum planck_layers {
   _ADJUST,
   _ARROW,
   _INTJ,
-  _MACOS
+  _MODS
 };
 
 enum planck_keycodes {
@@ -44,7 +44,7 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
 #define INTJ MO(_INTJ)
-#define MACOS MO(_MACOS)
+#define MODS MO(_MODS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -56,14 +56,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | IntJ | Ctrl | Alt  | GUI  |Lower |Space |NumPad|Raise | Left | Down |  Up  |Right |
+ * | IntJ | Ctrl | Alt  | GUI  |Lower |Space | Mods |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {LT(ARROW,KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(MACOS,KC_ENT),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {LT(INTJ,KC_F4), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LT(MODS,KC_DEL),  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
@@ -160,9 +160,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* IntelliJ (Fn)
  * ,-----------------------------------------------------------------------------------.
- * |      | Close|      |  End |Refctr|      |      |Usages|Prev_M|Outlin|  Run |  PW  |
+ * |      | Close|      |  End |Refctr|OpenIn|      |Usages|Prev_M|Outlin|  Run |  PW  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |Symbol|      |OpenIn|  VCS |Hierar| Prev |Next_M| Next |      |      |
+ * |      |      |Symbol|      |Search|  VCS |Hierar| Prev |Next_M| Next |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |GoToBM|Run It|Create|S.BkMk|G.BkMk| File | Menu |      |      | Info |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -171,29 +171,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
  
 [_INTJ] = {
-  {_______, LCTL(KC_F4), _______, LCTL(KC_F2), LCTL(LALT(LSFT(KC_T))), _______, _______, LALT(KC_F7), LALT(KC_UP), LCTL(KC_F12), LSFT(LALT(KC_F10)), PW },
-  {_______, _______, LCTL(LALT(LSFT(KC_N))), _______, LALT(KC_F1), LALT(KC_GRV), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), _______, _______ },
+  {_______, LCTL(KC_F4), _______, LCTL(KC_F2), LCTL(LALT(LSFT(KC_T))), LALT(KC_F1), _______, LALT(KC_F7), LALT(KC_UP), LCTL(KC_F12), LSFT(LALT(KC_F10)), PW },
+  {_______, _______, LCTL(LALT(LSFT(KC_N))), _______, LCTL(LSFT(KC_F)), LALT(KC_GRV), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), _______, _______ },
   {_______, LSFT(KC_F11), LCTL(LSFT(KC_F10)), LALT(KC_INS), LCTL(KC_F11), KC_F11, LCTL(LSFT(KC_N)), LSFT(LALT(KC_SCLN)), _______, _______, LCTL(KC_F1), _______ },
   {_______, _______, _______, _______, _______, LCTL(LALT(KC_SCLN)), LCTL(LALT(KC_SCLN)), _______, _______, _______, _______, _______ }
 },
 
-/* MacOs Nav
+/* Mods
  * ,-----------------------------------------------------------------------------------.
- * |      |Alt+1 |Alt+1 |Alt+1 |Alt+1 |Alt+1 |Alt+1 |Alt+1 |Alt+1 |Alt+1 |Alt+1 |      |
+ * |CtrlF4|Alt+1 |Alt+2 |Alt+3 |Alt+4 |Alt+5 |Alt+6 |Alt+7 |Alt+8 |Alt+9 |Alt+0 |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |NxChng|      |      |      |      |      | Spc1 | Spc2 | Spc3 | Spc4 |      |
+ * |Ctrl+`|Ctrl+1|Ctrl+2|Ctrl+3|Ctrl+4|Ctrl+5|Ctrl+6|Ctrl+7|Ctrl+8|Ctrl+9|Ctrl+0|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |PrChng|      |      |      |      |      | Spc5 | Spc6 | Spc7 | Spc8 |      |
+ * |      |Gui+1 |Gui+2 |Gui+3 |Gui+4 |Gui+5 |Gui+6 |Gui+7 |Gui+8 |Gui+9 |Gui+0 |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |LftScr|FulScr|RgtScr|      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
  
-[_MACOS] = {
-  {_______, LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8), LALT(KC_9), LALT(KC_0), _______ },
-  {_______, _______, _______, _______, _______, _______, _______, LCTL(KC_1), LCTL(KC_2), LCTL(KC_3), LCTL(KC_4), _______ },
-  {_______, _______, _______, _______, _______, _______, _______, LCTL(KC_5), LCTL(KC_6), LCTL(KC_7), LCTL(KC_8), _______ },
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
+[_MODS] = {
+  {LCTL(KC_F4), LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8), LALT(KC_9), LALT(KC_0), _______ },
+  {LCTL(KC_GRV), LCTL(KC_1), LCTL(KC_2), LCTL(KC_3), LCTL(KC_4), LCTL(KC_5), LCTL(KC_6), LCTL(KC_7), LCTL(KC_8), LCTL(KC_9), LCTL(KC_0), _______ },
+  {_______, LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5), LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), LGUI(KC_0), _______ },
+  {LSFT(LCTL(LGUI(KC_F))), LSFT(LCTL(LGUI(KC_G))), LSFT(LCTL(LGUI(KC_H))), _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 }
 
 };
