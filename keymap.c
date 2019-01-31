@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Close|      |  End |Refctr|OpenIn|      |Usages|Prev_M|Outlin|  Run |  PW  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |Symbol|      |Search|  VCS |Hierar| Prev |Next_M| Next |FntRes|      |
+ * |HidWin|      |Symbol|      |Search|  VCS |Hierar| Prev |Next_M| Next |FntRes|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |GoToBM|Run It|Create|S.BkMk|G.BkMk| File | Menu |Font- |Font+ | Info |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -172,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  
 [_INTJ] = {
   {_______, LCTL(KC_F4), _______, LCTL(KC_F2), LCTL(LALT(LSFT(KC_T))), LALT(KC_F1), _______, LALT(KC_F7), LALT(KC_UP), LCTL(KC_F12), LSFT(LALT(KC_F10)), PW },
-  {_______, _______, LCTL(LALT(LSFT(KC_N))), _______, LCTL(LSFT(KC_F)), LALT(KC_GRV), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), LCTL(LALT(LSFT(KC_SCLN))), _______ },
+  {LCTL(LSFT(KC_F12)), _______, LCTL(LALT(LSFT(KC_N))), _______, LCTL(LSFT(KC_F)), LALT(KC_GRV), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), LCTL(LALT(LSFT(KC_SCLN))), _______ },
   {_______, LSFT(KC_F11), LCTL(LSFT(KC_F10)), LALT(KC_INS), LCTL(KC_F11), KC_F11, LCTL(LSFT(KC_N)), LSFT(LALT(KC_SCLN)), LCTL(LALT(LSFT(KC_MINS))), LCTL(LALT(LSFT(KC_EQL))), LCTL(KC_F1), _______ },
   {_______, _______, _______, _______, _______, LCTL(LALT(KC_SCLN)), LCTL(LALT(KC_SCLN)), _______, _______, _______, _______, _______ }
 },
