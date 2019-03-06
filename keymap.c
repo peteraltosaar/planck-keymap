@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Mods
  * ,-----------------------------------------------------------------------------------.
- * |CtrlF4|Alt+1 |Alt+2 |Alt+3 |Alt+4 |Alt+5 |Alt+6 |Alt+7 |Alt+8 |Alt+9 |Alt+0 |      |
+ * |CtAlF4|Alt+1 |Alt+2 |Alt+3 |Alt+4 |Alt+5 |Alt+6 |Alt+7 |Alt+8 |Alt+9 |Alt+0 |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Ctrl+`|Ctrl+1|Ctrl+2|Ctrl+3|Ctrl+4|Ctrl+5|Ctrl+6|Ctrl+7|Ctrl+8|Ctrl+9|Ctrl+0|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
  
 [_MODS] = {
-  {LCTL(KC_F4), LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8), LALT(KC_9), LALT(KC_0), _______ },
+  {LCTL(LALT(KC_F4)), LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8), LALT(KC_9), LALT(KC_0), _______ },
   {LCTL(KC_GRV), LCTL(KC_1), LCTL(KC_2), LCTL(KC_3), LCTL(KC_4), LCTL(KC_5), LCTL(KC_6), LCTL(KC_7), LCTL(KC_8), LCTL(KC_9), LCTL(KC_0), _______ },
   {_______, LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5), LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), LGUI(KC_0), _______ },
   {LSFT(LCTL(LGUI(KC_F))), LSFT(LCTL(LGUI(KC_G))), LSFT(LCTL(LGUI(KC_H))), _______, _______, _______, _______, _______, _______, _______, _______, _______ }
