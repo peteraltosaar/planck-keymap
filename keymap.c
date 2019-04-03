@@ -89,6 +89,8 @@ enum planck_keycodes {
 #define CYCLSCR LSFT(LCTL(LGUI(KC_G)))
 
 // MacOS Navigation Shortcuts
+#define ALTLEFT LALT(KC_LEFT)
+#define ALTRGHT LALT(KC_RGHT)
 #define ALT_1 LALT(KC_1)
 #define ALT_2 LALT(KC_2)
 #define ALT_3 LALT(KC_3)
@@ -196,9 +198,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Arrow (Hold Escape)
  * ,-----------------------------------------------------------------------------------.
- * |      |  F1  |  F2  |  F3  |  F4  |      |      |      |  Up  |      |      |      |
+ * |      |  F1  |  F2  |  F3  |  F4  |      |      |DelEml|  Up  |ArcEml|      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |  F5  |  F6  |  F7  |  F8  |      | Home | Left | Down | Right|      | MENU |
+ * |      |  F5  |  F6  |  F7  |  F8  |      |AltLft| Left | Down | Right|AltRgt|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |  F9  |  F10 |  F11 |  F12 |      |  End |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -207,10 +209,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_ARROW] = {
-  {_______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______, _______, _______,   KC_UP, _______, _______, _______ },
-  {_______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_MENU },
-  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, _______,  KC_END, _______, _______, _______, _______, _______ },
-  {_______, _______, _______, _______, _______, _______, KC_BSPC, _______, _______, _______, _______, _______ }
+  {_______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______, _______, DEL_EML,   KC_UP, ARC_EML, _______, _______ },
+  {_______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______, ALTLEFT, KC_LEFT, KC_DOWN, KC_RGHT, ALTRGHT, _______ },
+  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, _______, _______, _______, _______, _______, _______, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 },
 
 /* IntelliJ (Fn)
