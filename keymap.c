@@ -48,6 +48,39 @@ enum planck_keycodes {
 #define INTELIJ LT(INTJ, KC_F4)
 #define MODKEYS LT(MODS, KC_DEL)
 
+#define ADDTODO LGUI(LSFT(KC_A))
+
+// IntelliJ Shortcuts
+#define FNDFILE LSFT(LCTL(KC_N))
+#define REFACTR LCTL(LALT(LSFT(KC_T)))
+#define CLOSE LCTL(KC_F4)
+#define HIDWINS LCTL(LSFT(KC_F12))
+#define RUNTGTS LSFT(LALT(KC_F10))
+#define RERUN LCTL(KC_F5)
+#define EXECUTE LCTL(LSFT(KC_F10))
+#define SYMBOL LSFT(LCTL(LALT(KC_N)))
+#define DEBUG LCTL(LSFT(KC_F9))
+#define END LCTL(KC_F2)
+#define CREATE LALT(KC_INS)
+#define FIND LCTL(LSFT(KC_F))
+#define GO2TEST LCTL(LSFT(KC_T))
+#define GIT LALT(KC_GRV)
+#define HIERARC LCTL(LALT(KC_H))
+#define USAGES LALT(KC_F7)
+#define MENU LALT(LSFT(KC_SCLN))
+#define BACK LCTL(LALT(KC_LEFT))
+#define FORWARD LCTL(LALT(KC_RGHT))
+#define PREVMTD LALT(KC_UP)
+#define NEXTMTD LALT(KC_DOWN)
+#define FONT_DN LSFT(LCTL(LALT(KC_MINS)))
+#define FONT_UP LSFT(LCTL(LALT(KC_EQL)))
+#define FONTRES LSFT(LCTL(LALT(KC_SCLN)))
+#define INFO LCTL(KC_F1)
+#define OUTLINE LCTL(KC_F12)
+#define PRVCHNG LCTL(LALT(LSFT(KC_UP)))
+#define NXTCHNG LCTL(LALT(LSFT(KC_DOWN)))
+#define EXT_VAR LCTL(LALT(KC_V))
+#define ACEJUMP LCTL(LALT(KC_SCLN))
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
@@ -143,21 +176,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* IntelliJ (Fn)
  * ,-----------------------------------------------------------------------------------.
- * |      | Close|      |  End |Refctr|OpenIn|      |Usages|Prev_M|Outlin|  Run |  PW  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |HidWin|RnTgts|Symbol|DbugIt|Search|  VCS |Hierar| Prev |Next_M| Next |FntRes|TglBrk|
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |ReRun |Run It|Create|S.BkMk|G.BkMk| File | Menu |Font- |Font+ | Info |BrkPts|
+ * |      | Close|      |  End |Refctr|OpenIn|      |Usages|Prev_M|Outlin|      |  PW  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |    KP_0     |      |      |      |      |      |
+ * |HidWin|RnTgts|Symbol|DbugIt|Search|  Git |Hierar| Prev |Next_M| Next |FntRes|      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |ReRun |Run It|Create|ExtVar|      | File | Menu |Font- |Font+ | Info |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
  
 [_INTJ] = {
-  {_______, LCTL(KC_F4), _______, LCTL(KC_F2), LCTL(LALT(LSFT(KC_T))), LALT(KC_F1), _______, LALT(KC_F7), LALT(KC_UP), LCTL(KC_F12), LSFT(LALT(KC_F10)), PW },
-  {LCTL(LSFT(KC_F12)), LALT(LSFT(KC_F10)), LCTL(LALT(LSFT(KC_N))), LCTL(LSFT(KC_F9)), LCTL(LSFT(KC_F)), LALT(KC_GRV), LCTL(LALT(KC_H)), LCTL(LALT(KC_LEFT)), LALT(KC_DOWN), LCTL(LALT(KC_RIGHT)), LCTL(LALT(LSFT(KC_SCLN))), LCTL(LSFT(LALT(KC_F8))) },
-  {_______, LCTL(KC_F5), LCTL(LSFT(KC_F10)), LALT(KC_INS), LCTL(KC_F11), KC_F11, LCTL(LSFT(KC_N)), LSFT(LALT(KC_SCLN)), LCTL(LALT(LSFT(KC_MINS))), LCTL(LALT(LSFT(KC_EQL))), LCTL(KC_F1), LCTL(LSFT(KC_F8)) },
-  {_______, _______, _______, _______, _______, LCTL(LALT(KC_SCLN)), LCTL(LALT(KC_SCLN)), _______, _______, _______, _______, _______ }
+  {_______,   CLOSE, _______,     END, REFACTR, GO2TEST, _______,  USAGES, PREVMTD, OUTLINE, _______, PW },
+  {HIDWINS, RUNTGTS,  SYMBOL,   DEBUG,    FIND,     GIT, HIERARC,    BACK, NEXTMTD, FORWARD, FONTRES, _______ },
+  {_______,   RERUN, EXECUTE,  CREATE, EXT_VAR, _______, FNDFILE,    MENU, FONT_DN, FONT_UP,    INFO, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 },
 
 /* Mods
