@@ -50,6 +50,9 @@ enum planck_keycodes {
 
 #define ADDTODO LGUI(LSFT(KC_A))
 
+// VDI Shortcuts
+#define TERMNAL LCTL(KC_GRV)
+
 // IntelliJ Shortcuts
 #define FNDFILE LSFT(LCTL(KC_N))
 #define REFACTR LCTL(LALT(LSFT(KC_T)))
@@ -81,6 +84,42 @@ enum planck_keycodes {
 #define NXTCHNG LCTL(LALT(LSFT(KC_DOWN)))
 #define EXT_VAR LCTL(LALT(KC_V))
 #define ACEJUMP LCTL(LALT(KC_SCLN))
+
+// MacOS Shortcuts
+#define CYCLSCR LSFT(LCTL(LGUI(KC_G)))
+
+// MacOS Navigation Shortcuts
+#define ALT_1 LALT(KC_1)
+#define ALT_2 LALT(KC_2)
+#define ALT_3 LALT(KC_3)
+#define ALT_4 LALT(KC_4)
+#define ALT_5 LALT(KC_5)
+#define ALT_6 LALT(KC_6)
+#define ALT_7 LALT(KC_7)
+#define ALT_8 LALT(KC_8)
+#define ALT_9 LALT(KC_9)
+#define ALT_0 LALT(KC_0)
+#define CTL_1 LCTL(KC_1)
+#define CTL_2 LCTL(KC_2)
+#define CTL_3 LCTL(KC_3)
+#define CTL_4 LCTL(KC_4)
+#define CTL_5 LCTL(KC_5)
+#define CTL_6 LCTL(KC_6)
+#define CTL_7 LCTL(KC_7)
+#define CTL_8 LCTL(KC_8)
+#define CTL_9 LCTL(KC_9)
+#define CTL_0 LCTL(KC_0)
+#define GUI_1 LGUI(KC_1)
+#define GUI_2 LGUI(KC_2)
+#define GUI_3 LGUI(KC_3)
+#define GUI_4 LGUI(KC_4)
+#define GUI_5 LGUI(KC_5)
+#define GUI_6 LGUI(KC_6)
+#define GUI_7 LGUI(KC_7)
+#define GUI_8 LGUI(KC_8)
+#define GUI_9 LGUI(KC_9)
+#define GUI_0 LGUI(KC_0)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
@@ -105,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |      |      |      |DelEml|ArcEml|      |   _  |   +  |   {  |   }  |  |   |
+ * | Del  |      |      |      |      |      |      |   _  |   +  |   {  |   }  |  |   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -114,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = {
   {KC_TILD, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC},
-  { KC_DEL, _______, _______, _______, DEL_EML, ARC_EML, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE},
+  { KC_DEL, _______, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MPLY},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT}
 },
@@ -201,15 +240,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Gui+1 |Gui+2 |Gui+3 |Gui+4 |Gui+5 |Gui+6 |Gui+7 |Gui+8 |Gui+9 |Gui+0 |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |LftScr|FulScr|RgtScr|      |      |      |      |      |      |      |      |      |
+ * |      |FulScr|      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
- 
+
 [_MODS] = {
-  {LCTL(LALT(KC_F4)), LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8), LALT(KC_9), LALT(KC_0), _______ },
-  {LCTL(KC_GRV), LCTL(KC_1), LCTL(KC_2), LCTL(KC_3), LCTL(KC_4), LCTL(KC_5), LCTL(KC_6), LCTL(KC_7), LCTL(KC_8), LCTL(KC_9), LCTL(KC_0), _______ },
-  {_______, LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5), LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), LGUI(KC_0), _______ },
-  {LSFT(LCTL(LGUI(KC_F))), LSFT(LCTL(LGUI(KC_G))), LSFT(LCTL(LGUI(KC_H))), _______, _______, _______, _______, _______, _______, _______, _______, _______ }
+  {_______,   ALT_1,   ALT_2,   ALT_3,   ALT_4,   ALT_5,   ALT_6,   ALT_7,   ALT_8,   ALT_9,   ALT_0, _______ },
+  {TERMNAL,   CTL_1,   CTL_2,   CTL_3,   CTL_4,   CTL_5,   CTL_6,   CTL_7,   CTL_8,   CTL_9,   CTL_0, _______ },
+  {_______,   GUI_1,   GUI_2,   GUI_3,   GUI_4,   GUI_5,   GUI_6,   GUI_7,   GUI_8,   GUI_9,   GUI_0, _______ },
+  {_______, CYCLSCR, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 }
 
 };
