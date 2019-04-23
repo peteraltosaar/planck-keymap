@@ -26,7 +26,8 @@ enum planck_layers {
   _ADJUST,
   _ARROW,
   _INTJ,
-  _MODS
+  _MODS,
+  _DIVVY
 };
 
 enum planck_keycodes {
@@ -47,6 +48,7 @@ enum planck_keycodes {
 #define ESCAPE LT(ARROW, KC_ESC)
 #define INTELIJ LT(INTJ, KC_F4)
 #define MODKEYS LT(MODS, KC_DEL)
+#define DIVVY LT(MO(_DIVVY), KC_D)
 
 #define ADDTODO LGUI(LSFT(KC_A))
 
@@ -123,13 +125,24 @@ enum planck_keycodes {
 #define GUI_9 LGUI(KC_9)
 #define GUI_0 LGUI(KC_0)
 
+// DIVVY Shortcuts
+#define TOPLEFT LGUI(LSFT(LCTL(KC_U)))
+#define TOPHALF LGUI(LSFT(LCTL(KC_I)))
+#define TOPRGHT LGUI(LSFT(LCTL(KC_O)))
+#define LFTHALF LGUI(LSFT(LCTL(KC_J)))
+#define FULLSCR LGUI(LSFT(LCTL(KC_K)))
+#define RGTHALF LGUI(LSFT(LCTL(KC_L)))
+#define BOTLEFT LGUI(LSFT(LCTL(KC_M)))
+#define BOTHALF LGUI(LSFT(LCTL(KC_COMM)))
+#define BOTRGHT LGUI(LSFT(LCTL(KC_DOT)))
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |   A  |   S  |D/Divy|   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -138,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   { KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
-  { ESCAPE,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
+  { ESCAPE,    KC_A,    KC_S,   DIVVY,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
   {KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT},
   {INTELIJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT}
 },
@@ -252,6 +265,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {TERMNAL,   CTL_1,   CTL_2,   CTL_3,   CTL_4,   CTL_5,   CTL_6,   CTL_7,   CTL_8,   CTL_9,   CTL_0, _______ },
   {_______,   GUI_1,   GUI_2,   GUI_3,   GUI_4,   GUI_5,   GUI_6,   GUI_7,   GUI_8,   GUI_9,   GUI_0, _______ },
   {_______, CYCLSCR, _______, _______, _______, ADDTODO, _______, _______, _______, _______, _______, _______ }
+},
+
+/* Divvy
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |  <^  |  ^^  |  ^>  |      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  <   |FulScr|   >  |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  <v  |  vv  |  v>  |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_DIVVY] = {
+{_______, _______, _______, _______, _______, _______, _______, TOPLEFT, TOPHALF, TOPRGHT, _______, _______},
+{_______, _______, _______, _______, _______, _______, _______, LFTHALF, FULLSCR, RGTHALF, _______, _______},
+{_______, _______, _______, _______, _______, _______, _______, BOTLEFT, BOTHALF, BOTRGHT, _______, _______},
+{_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 }
 
 };
