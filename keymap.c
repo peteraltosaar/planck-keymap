@@ -36,17 +36,28 @@ enum planck_keycodes {
   EXT_PLV,
   PW,
   DEL_EML,
-  ARC_EML
+  ARC_EML,
+  CALENDR,
+  CHROME,
+  FIREFOX,
+  INTELIJ,
+  ITERM,
+  MAIL,
+  ONENOTE,
+  SLACK,
+  SPOTIFY,
+  TODOIST,
+  UNANET,
+  VMWARE
 };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
-#define INTJ MO(_INTJ)
 #define MODS MO(_MODS)
 
 #define ESCAPE LT(ARROW, KC_ESC)
-#define INTELIJ LT(INTJ, KC_F4)
+#define INTJ LT(MO(_INTJ), KC_F4)
 #define MODKEYS LT(MODS, KC_DEL)
 #define DIVVY LT(MO(_DIVVY), KC_D)
 
@@ -153,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
   { ESCAPE,    KC_A,    KC_S,   DIVVY,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
   {KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT},
-  {INTELIJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT}
+  {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT}
 },
 
 /* Lower
@@ -204,9 +215,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {_______,   RESET, _______, _______, _______, _______, _______, _______, _______, _______, _______,  KC_DEL},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______,   RESET, _______,    MAIL, _______, TODOIST,   ITERM,  UNANET, INTELIJ, ONENOTE, _______, _______},
+  {_______, _______,   SLACK, _______, FIREFOX,  CHROME, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, CALENDR,  VMWARE, _______, _______, SPOTIFY, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -264,7 +275,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______,   ALT_1,   ALT_2,   ALT_3,   ALT_4,   ALT_5,   ALT_6,   ALT_7,   ALT_8,   ALT_9,   ALT_0, _______ },
   {TERMNAL,   CTL_1,   CTL_2,   CTL_3,   CTL_4,   CTL_5,   CTL_6,   CTL_7,   CTL_8,   CTL_9,   CTL_0, _______ },
   {_______,   GUI_1,   GUI_2,   GUI_3,   GUI_4,   GUI_5,   GUI_6,   GUI_7,   GUI_8,   GUI_9,   GUI_0, _______ },
-  {_______, CYCLSCR, _______, _______, _______, ADDTODO, _______, _______, _______, _______, _______, _______ }
+  {_______, _______, _______, _______, _______, ADDTODO, _______, _______, _______, _______, _______, _______ }
 },
 
 /* Divvy
@@ -308,6 +319,90 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("xE");
       }
       return false;
+    case SLACK:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("slack" SS_TAP(X_ENTER));
+      }
+          return false;
+    case CALENDR:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("calendar" SS_TAP(X_ENTER));
+      }
+          return false;
+    case FIREFOX:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("firefox" SS_TAP(X_ENTER));
+      }
+          return false;
+    case MAIL:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("mail" SS_TAP(X_ENTER));
+      }
+          return false;
+    case TODOIST:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("todoist-native" SS_TAP(X_ENTER));
+      }
+          return false;
+    case CHROME:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("chrome" SS_TAP(X_ENTER));
+      }
+          return false;
+    case UNANET:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("unanet" SS_TAP(X_ENTER));
+      }
+          return false;
+    case SPOTIFY:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("spotify" SS_TAP(X_ENTER));
+      }
+          return false;
+    case ITERM:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("iterm" SS_TAP(X_ENTER));
+      }
+          return false;
+    case ONENOTE:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("onenote" SS_TAP(X_ENTER));
+      }
+          return false;
+    case INTELIJ:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("intellij" SS_TAP(X_ENTER));
+      }
+          return false;
+    case VMWARE:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("vmware" SS_TAP(X_ENTER));
+      }
+          return false;
   }
   return true;
 }
