@@ -105,6 +105,8 @@ enum planck_keycodes {
 #define ALTBSPC LALT(KC_BSPC)
 #define ALTLEFT LALT(KC_LEFT)
 #define ALTRGHT LALT(KC_RGHT)
+#define GUILEFT LGUI(KC_LEFT)
+#define GUIRGHT LGUI(KC_RGHT)
 #define ALT_1 LALT(KC_1)
 #define ALT_2 LALT(KC_2)
 #define ALT_3 LALT(KC_3)
@@ -219,7 +221,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______,   SLACK, _______, FIREFOX,  CHROME, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, CALENDR,  VMWARE, _______, _______, SPOTIFY, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
-},
+}
 
 /* Arrow (Hold Escape)
  * ,-----------------------------------------------------------------------------------.
@@ -236,7 +238,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ARROW] = {
   {_______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______, _______, DEL_EML,   KC_UP, ARC_EML, _______, ALTBSPC },
   {_______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______, ALTLEFT, KC_LEFT, KC_DOWN, KC_RGHT, ALTRGHT, _______ },
-  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, _______, _______, _______, _______, _______, _______, _______ },
+  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, _______, _______, GUILEFT, _______, GUIRGHT, _______, _______ },
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 },
 
