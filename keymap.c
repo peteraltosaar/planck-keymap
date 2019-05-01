@@ -147,7 +147,7 @@ enum planck_keycodes {
 #define RGTHALF LGUI(LSFT(LCTL(KC_H)))
 #define BOTLEFT LGUI(LSFT(LCTL(KC_V)))
 #define BOTHALF LGUI(LSFT(LCTL(KC_B)))
-#define BOTRGHT LGUI(LSFT(LCTL(KC_M)))
+#define BOTRGHT LGUI(LSFT(LCTL(KC_N)))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
