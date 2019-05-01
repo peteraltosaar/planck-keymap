@@ -81,6 +81,7 @@ enum planck_keycodes {
 #define FIND LCTL(LSFT(KC_F))
 #define GO2TEST LCTL(LSFT(KC_T))
 #define GIT LALT(KC_GRV)
+#define MOREGIT LCTL(LALT(LSFT(KC_G)))
 #define HIERARC LCTL(LALT(KC_H))
 #define USAGES LALT(KC_F7)
 #define MENU LALT(LSFT(KC_SCLN))
@@ -248,7 +249,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |HidWin|RnTgts|Symbol|DbugIt|Search|  Git |Hierar| Prev |Next_M| Next |FntRes|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |ReRun |Run It|Create|ExtVar|      | File | Menu |Font- |Font+ | Info |      |
+ * |      |ReRun |Run It|Create|ExtVar|MorGit| File | Menu |Font- |Font+ | Info |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -257,7 +258,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_INTJ] = {
   {_______,   CLOSE, _______,     END, REFACTR, GO2TEST, _______,  USAGES, PREVMTD, OUTLINE, _______, PW },
   {HIDWINS, RUNTGTS,  SYMBOL,   DEBUG,    FIND,     GIT, HIERARC,    BACK, NEXTMTD, FORWARD, FONTRES, _______ },
-  {_______,   RERUN, EXECUTE,  CREATE, EXT_VAR, _______, FNDFILE,    MENU, FONT_DN, FONT_UP,    INFO, _______ },
+  {_______,   RERUN, EXECUTE,  CREATE, EXT_VAR, MOREGIT, FNDFILE,    MENU, FONT_DN, FONT_UP,    INFO, _______ },
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 },
 
