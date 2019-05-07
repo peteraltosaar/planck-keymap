@@ -48,7 +48,8 @@ enum planck_keycodes {
   SPOTIFY,
   TODOIST,
   UNANET,
-  VMWARE
+  VMWARE,
+  RMVIEW
 };
 
 #define LOWER MO(_LOWER)
@@ -230,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  F5  |  F6  |  F7  |  F8  |      |AltLft| Left | Down | Right|AltRgt|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F9  |  F10 |  F11 |  F12 | Home |  End |      |      |      |      |      |
+ * |      |  F9  |  F10 |  F11 |  F12 | Home |  End |      |      |      |      |RmView|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -239,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ARROW] = {
   {_______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______, _______, DEL_EML,   KC_UP, ARC_EML, _______, ALTBSPC },
   {_______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______, ALTLEFT, KC_LEFT, KC_DOWN, KC_RGHT, ALTRGHT, _______ },
-  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_HOME,  KC_END, GUILEFT, _______, GUIRGHT, _______, _______ },
+  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_HOME,  KC_END, GUILEFT, _______, GUIRGHT, _______,  RMVIEW },
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 },
 
@@ -406,6 +407,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("vmware" SS_TAP(X_ENTER));
       }
           return false;
+    case RMVIEW:
+      if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_F10));
+        _delay_ms(50);
+        SEND_STRING(SS_TAP(X_RIGHT));
+        _delay_ms(50);
+        SEND_STRING(SS_TAP(X_RIGHT));
+        _delay_ms(50);
+        SEND_STRING(SS_TAP(X_RIGHT));
+        _delay_ms(100);
+        SEND_STRING(SS_TAP(X_DOWN));
+        _delay_ms(50);
+        SEND_STRING(SS_TAP(X_DOWN));
+        _delay_ms(50);
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
   }
   return true;
 }
