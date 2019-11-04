@@ -310,7 +310,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case PW:
       if (record->event.pressed) {
-        SEND_STRING("PW");
+        SEND_STRING("PW_PLACEHOLDER");
       }
       return false;
     case DEL_EML:
