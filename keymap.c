@@ -100,6 +100,10 @@ enum planck_keycodes {
 #define NXTCHNG LCTL(LALT(LSFT(KC_DOWN)))
 #define EXT_VAR LCTL(LALT(KC_V))
 #define ACEJUMP LCTL(LALT(KC_SCLN))
+#define MTWLEFT LCTL(LSFT(KC_LEFT))
+#define MTWDOWN LCTL(LSFT(KC_DOWN))
+#define MTW_UP LCTL(LSFT(KC_UP))
+#define MTWRGHT LCTL(LSFT(KC_RGHT))
 
 // MacOS Shortcuts
 #define CYCLSCR LSFT(LCTL(LGUI(KC_G)))
@@ -253,7 +257,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |ReRun |Run It|Create|ExtVar|MorGit| File | Menu |Font- |Font+ | Info |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      |      |      |      |      |
+ * |      |      |      |      |      |             |      |TWLeft|TWDown|TW Up |TWRght|
  * `-----------------------------------------------------------------------------------'
  */
  
@@ -261,7 +265,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______,   CLOSE, _______,     END, REFACTR, GO2TEST, _______,  USAGES, PREVMTD, OUTLINE, _______, PW },
   {HIDWINS, RUNTGTS,  SYMBOL,   DEBUG,    FIND,     GIT, HIERARC,    BACK, NEXTMTD, FORWARD, FONTRES, _______ },
   {_______,   RERUN, EXECUTE,  CREATE, EXT_VAR, MOREGIT, FNDFILE,    MENU, FONT_DN, FONT_UP,    INFO, _______ },
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
+  {_______, _______, _______, _______, _______, _______, _______, _______, MTWLEFT, MTWDOWN,  MTW_UP, MTWRGHT }
 },
 
 /* Mods
