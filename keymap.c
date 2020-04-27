@@ -37,12 +37,13 @@ enum planck_keycodes {
   PW,
   DEL_EML,
   ARC_EML,
+  BRAVE,
   CALENDR,
-  CHROME,
   FIREFOX,
   INTELIJ,
   ITERM,
   MAIL,
+  NOTION,
   ONENOTE,
   SLACK,
   SPOTIFY,
@@ -220,8 +221,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = {
   {_______,   RESET, _______,    MAIL, _______, TODOIST,   ITERM,  UNANET, INTELIJ, ONENOTE, _______, _______},
-  {_______, _______,   SLACK, _______, FIREFOX,  CHROME, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, CALENDR,  VMWARE, _______, _______, SPOTIFY, _______, _______, _______, _______},
+  {_______, _______,   SLACK, _______, FIREFOX, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, CALENDR,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -358,13 +359,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("todoist-native" SS_TAP(X_ENTER));
       }
           return false;
-    case CHROME:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("chrome" SS_TAP(X_ENTER));
-      }
-          return false;
     case UNANET:
       if (record->event.pressed) {
         SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
@@ -407,21 +401,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("vmware" SS_TAP(X_ENTER));
       }
           return false;
+    case BRAVE:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("brave" SS_TAP(X_ENTER));
+      }
+          return false;
+    case NOTION:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("notion" SS_TAP(X_ENTER));
+      }
+          return false;
     case RMVIEW:
       if (record->event.pressed) {
-        SEND_STRING(SS_TAP(X_F10));
-        _delay_ms(50);
-        SEND_STRING(SS_TAP(X_RIGHT));
-        _delay_ms(50);
-        SEND_STRING(SS_TAP(X_RIGHT));
-        _delay_ms(50);
-        SEND_STRING(SS_TAP(X_RIGHT));
-        _delay_ms(100);
-        SEND_STRING(SS_TAP(X_DOWN));
-        _delay_ms(50);
-        SEND_STRING(SS_TAP(X_DOWN));
-        _delay_ms(50);
-        SEND_STRING(SS_TAP(X_ENTER));
+	SEND_STRING(SS_LALT("v"));
+	_delay_ms(100);
+	SEND_STRING("r");
       }
       return false;
   }
