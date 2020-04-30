@@ -39,14 +39,14 @@ enum planck_keycodes {
   ARC_EML,
   BRAVE,
   CALENDR,
-  FIREFOX,
   INTELIJ,
   ITERM,
   MAIL,
   NOTION,
-  ONENOTE,
-  SLACK,
+  OUTLOOK,
+  SIGNAL,
   SPOTIFY,
+  TEAMS,
   TODOIST,
   UNANET,
   VMWARE,
@@ -224,9 +224,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {_______,   RESET, _______,    MAIL, _______, TODOIST,   ITERM,  UNANET, INTELIJ, ONENOTE, _______, _______},
-  {_______, _______,   SLACK, _______, FIREFOX, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, CALENDR,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
+  {_______,   RESET, _______, _______, _______, TODOIST,   ITERM, _______, INTELIJ, OUTLOOK, _______, _______},
+  {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -311,6 +311,15 @@ uint32_t layer_state_set_user(uint32_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
+/*
+void switch_to(char* app) {
+    SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+    _delay_ms(200);
+    SEND_STRING(app);
+    SEND_STRING(SS_TAP(X_ENTER));
+}
+*/
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case PW:
@@ -328,97 +337,94 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("xE");
       }
       return false;
-    case SLACK:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("slack" SS_TAP(X_ENTER));
-      }
-          return false;
-    case CALENDR:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("calendar" SS_TAP(X_ENTER));
-      }
-          return false;
-    case FIREFOX:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("firefox" SS_TAP(X_ENTER));
-      }
-          return false;
-    case MAIL:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("mail" SS_TAP(X_ENTER));
-      }
-          return false;
-    case TODOIST:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("todoist-native" SS_TAP(X_ENTER));
-      }
-          return false;
-    case UNANET:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("unanet" SS_TAP(X_ENTER));
-      }
-          return false;
-    case SPOTIFY:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("spotify" SS_TAP(X_ENTER));
-      }
-          return false;
-    case ITERM:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("iterm" SS_TAP(X_ENTER));
-      }
-          return false;
-    case ONENOTE:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("onenote" SS_TAP(X_ENTER));
-      }
-          return false;
-    case INTELIJ:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("intellij" SS_TAP(X_ENTER));
-      }
-          return false;
-    case VMWARE:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("vmware" SS_TAP(X_ENTER));
-      }
-          return false;
     case BRAVE:
       if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
         _delay_ms(200);
-        SEND_STRING("brave" SS_TAP(X_ENTER));
+        SEND_STRING("brave");
+        SEND_STRING(SS_TAP(X_ENTER));
       }
-          return false;
+      return false;
+    case CALENDR:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("calendar");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case INTELIJ:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("intellij");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case ITERM:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("iterm");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
     case NOTION:
       if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
         _delay_ms(200);
-        SEND_STRING("notion" SS_TAP(X_ENTER));
+        SEND_STRING("notion");
+        SEND_STRING(SS_TAP(X_ENTER));
       }
-          return false;
+      return false;
+    case OUTLOOK:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("outlook");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case SIGNAL:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("signal");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case SPOTIFY:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("spotify");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case TEAMS:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("teams");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case TODOIST:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("firefox");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
+    case VMWARE:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        _delay_ms(200);
+        SEND_STRING("vmware");
+        SEND_STRING(SS_TAP(X_ENTER));
+      }
+      return false;
     case RMVIEW:
       if (record->event.pressed) {
 	SEND_STRING(SS_LALT("v"));
