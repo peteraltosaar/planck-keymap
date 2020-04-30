@@ -339,7 +339,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case BRAVE:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("brave");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -347,7 +347,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case CALENDR:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("calendar");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -355,7 +355,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case INTELIJ:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("intellij");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -363,7 +363,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case ITERM:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("iterm");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -371,7 +371,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case NOTION:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("notion");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -379,7 +379,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case OUTLOOK:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("outlook");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -387,7 +387,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case SIGNAL:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("signal");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -395,7 +395,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case SPOTIFY:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("spotify");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -403,7 +403,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case TEAMS:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("teams");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -411,7 +411,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case TODOIST:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("firefox");
         SEND_STRING(SS_TAP(X_ENTER));
@@ -419,7 +419,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case VMWARE:
       if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
         _delay_ms(200);
         SEND_STRING("vmware");
         SEND_STRING(SS_TAP(X_ENTER));
