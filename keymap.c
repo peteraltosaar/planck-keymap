@@ -63,7 +63,7 @@ enum planck_keycodes {
 #define MODKEYS LT(MODS, KC_DEL)
 #define DIVVY LT(MO(_DIVVY), KC_D)
 
-#define ADDTODO LGUI(LSFT(KC_A))
+#define ADDTODO LGUI(LCTL(KC_A))
 
 // VDI Shortcuts
 #define TERMNAL LCTL(KC_GRV)
