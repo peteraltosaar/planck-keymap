@@ -107,6 +107,7 @@ enum planck_keycodes {
 
 // MacOS Shortcuts
 #define CYCLSCR LSFT(LCTL(LGUI(KC_G)))
+#define ALFRED LALT(KC_SPACE)
 
 // MacOS Navigation Shortcuts
 #define ALTBSPC LALT(KC_BSPC)
@@ -166,14 +167,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | IntJ | Ctrl | Alt  | GUI  |Lower |Space | Mods |Raise | Left | Down |  Up  |Right |
+ * | IntJ | Ctrl | Alt  | GUI  |Lower |Space | Mods |Raise |Alfred| Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
   { KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
   { ESCAPE,    KC_A,    KC_S,   DIVVY,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
   {KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT},
-  {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT}
+  {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,   ALFRED, KC_DOWN,   KC_UP, KC_RGHT}
 },
 
 /* Lower
