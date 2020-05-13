@@ -106,7 +106,6 @@ enum planck_keycodes {
 #define MTWRGHT LCTL(LSFT(KC_RGHT))
 
 // MacOS Shortcuts
-#define CYCLSCR LSFT(LCTL(LGUI(KC_G)))
 #define ALFRED LALT(KC_SPACE)
 
 // MacOS Navigation Shortcuts
