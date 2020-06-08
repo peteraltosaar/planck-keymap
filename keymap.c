@@ -27,7 +27,8 @@ enum planck_layers {
   _ARROW,
   _INTJ,
   _MODS,
-  _DIVVY
+  _DIVVY,
+  _APPS
 };
 
 enum planck_keycodes {
@@ -62,6 +63,7 @@ enum planck_keycodes {
 #define INTJ LT(MO(_INTJ), KC_F4)
 #define MODKEYS LT(MODS, KC_DEL)
 #define DIVVY LT(MO(_DIVVY), KC_D)
+#define TAB_ADJ LT(MO(_APPS), KC_TAB)
 
 #define ADDTODO LGUI(LCTL(KC_A))
 
@@ -170,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
-  { KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
+  {TAB_ADJ,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
   { ESCAPE,    KC_A,    KC_S,   DIVVY,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
   {KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT},
   {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,   ALFRED, KC_DOWN,   KC_UP, KC_RGHT}
@@ -225,6 +227,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = {
   {_______,   RESET, _______, _______, _______, TODOIST,   ITERM, _______, INTELIJ, OUTLOOK, _______, _______},
+  {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
+},
+
+/* App Shortcuts
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |Tdoist|iTerm |      |Intelj|Outlok|      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |Signal|Calndr|      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |Teams |VMWare|Brave |Notion|Sptify|      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_APPS] = {
+  {_______, _______, _______, _______, _______, TODOIST,   ITERM, _______, INTELIJ, OUTLOOK, _______, _______},
   {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
