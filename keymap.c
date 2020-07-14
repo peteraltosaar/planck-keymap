@@ -107,6 +107,8 @@ enum planck_keycodes {
 
 // MacOS Shortcuts
 #define ALFRED LALT(KC_SPACE)
+#define ZOOMIN LGUI(KC_PLUS)
+#define ZOOMOUT LGUI(KC_MINS)
 
 // MacOS Navigation Shortcuts
 #define ALTBSPC LALT(KC_BSPC)
@@ -254,9 +256,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  F5  |  F6  |  F7  |  F8  |      |AltLft| Left | Down | Right|AltRgt|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F9  |  F10 |  F11 |  F12 | Home |  End |      |      |      |      |RmView|
+ * |      |  F9  |  F10 |  F11 |  F12 | Home |  End |GuiLft|      |GuiRgt|      |RmView|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |W.Menu|      |      |      |      |      |
+ * |      |      |      |      |      |      |W.Menu|      |      |ZoomOt|ZoomIn|      |
  * `-----------------------------------------------------------------------------------'
  */
 
@@ -264,7 +266,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______, _______, DEL_EML,   KC_UP, ARC_EML, _______, ALTBSPC },
   {_______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______, ALTLEFT, KC_LEFT, KC_DOWN, KC_RGHT, ALTRGHT, _______ },
   {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_HOME,  KC_END, GUILEFT, _______, GUIRGHT, _______,  RMVIEW },
-  {_______, _______, _______, _______, _______, _______,  KC_APP, _______, _______, _______, _______, _______ }
+  {_______, _______, _______, _______, _______, _______,  KC_APP, _______, _______,  ZOOMIN, ZOOMOUT, _______ }
 },
 
 /* IntelliJ (Fn)
