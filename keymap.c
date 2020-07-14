@@ -27,7 +27,6 @@ enum planck_layers {
   _ARROW,
   _INTJ,
   _MODS,
-  _DIVVY,
   _APPS
 };
 
@@ -62,7 +61,6 @@ enum planck_keycodes {
 #define ESCAPE LT(ARROW, KC_ESC)
 #define INTJ LT(MO(_INTJ), KC_F4)
 #define MODKEYS LT(MODS, KC_DEL)
-#define DIVVY LT(MO(_DIVVY), KC_D)
 #define TAB_ADJ LT(MO(_APPS), KC_TAB)
 
 #define ADDTODO LGUI(LCTL(KC_A))
@@ -164,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |D/Divy|   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -173,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   {TAB_ADJ,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
-  { ESCAPE,    KC_A,    KC_S,   DIVVY,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
+  { ESCAPE,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
   {KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT},
   {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,   ALFRED, KC_DOWN,   KC_UP, KC_RGHT}
 },
@@ -216,19 +214,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
- * |      | Reset|      |      |      |Tdoist|iTerm |      |Intelj|Outlok|      |      |
+ * |      | Reset|      |      |      |Tdoist|iTerm |  <^  |  ^^  |  ^>  |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |Signal|Calndr|      |      |      |      |      |      |      |      |
+ * |      |      |Signal|Calndr|      |      |      |  <<  |FulScr|  >>  |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |Teams |VMWare|Brave |Notion|Sptify|      |      |      |      |
+ * |      |      |      |Teams |VMWare|Brave |Notion|  <v  |  vv  |  v>  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {_______,   RESET, _______, _______, _______, TODOIST,   ITERM, _______, INTELIJ, OUTLOOK, _______, _______},
-  {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
+  {_______,   RESET, _______, _______, _______, TODOIST,   ITERM, TOPLEFT, TOPHALF, TOPRGHT, _______, _______},
+  {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, LFTHALF, FULLSCR, RGTHALF, _______, _______},
+  {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, BOTLEFT, BOTHALF, BOTRGHT, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -305,26 +303,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {TERMNAL,   CTL_1,   CTL_2,   CTL_3,   CTL_4,   CTL_5,   CTL_6,   CTL_7,   CTL_8,   CTL_9,   CTL_0, _______ },
   {_______,   GUI_1,   GUI_2,   GUI_3,   GUI_4,   GUI_5,   GUI_6,   GUI_7,   GUI_8,   GUI_9,   GUI_0, _______ },
   {_______, _______, _______, _______, _______, ADDTODO, _______, _______, _______, _______, _______, _______ }
-},
-
-/* Divvy
- * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |  <^  |  ^^  |  ^>  |      |      |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |  <   |FulScr|   >  |      |      |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |  <v  |  vv  |  v>  |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-[_DIVVY] = {
-{_______, _______, _______, _______, _______, _______, _______, TOPLEFT, TOPHALF, TOPRGHT, _______, _______},
-{_______, _______, _______, _______, _______, _______, _______, LFTHALF, FULLSCR, RGTHALF, _______, _______},
-{_______, _______, _______, _______, _______, _______, _______, BOTLEFT, BOTHALF, BOTRGHT, _______, _______},
-{_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 }
-
 };
 
 uint32_t layer_state_set_user(uint32_t state) {
