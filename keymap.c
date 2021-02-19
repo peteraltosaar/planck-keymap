@@ -324,117 +324,117 @@ void switch_to(char* app) {
 */
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case PW:
-      if (record->event.pressed) {
-        SEND_STRING("PW_PLACEHOLDER");
-      }
-      return false;
-    case DEL_EML:
-      if (record->event.pressed) {
-        SEND_STRING("x#");
-      }
-      return false;
-    case ARC_EML:
-      if (record->event.pressed) {
-        SEND_STRING("xE");
-      }
-      return false;
-    case BRAVE:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("brave");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case CALENDR:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("calendar");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case INTELIJ:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("intellij");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case ITERM:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("iterm");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case NOTION:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("notion");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case OUTLOOK:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("outlook");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case SIGNAL:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("signal");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case SPOTIFY:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("spotify");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case TEAMS:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("teams");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case TODOIST:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("firefox");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case VMWARE:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-        _delay_ms(200);
-        SEND_STRING("vmware");
-        SEND_STRING(SS_TAP(X_ENTER));
-      }
-      return false;
-    case RMVIEW:
-      if (record->event.pressed) {
-	SEND_STRING(SS_LALT("v"));
-	_delay_ms(100);
-	SEND_STRING("r");
-      }
-      return false;
-  }
+    switch (keycode) {
+        case PW:
+            if (record->event.pressed) {
+                SEND_STRING("PW_PLACEHOLDER");
+            }
+            return false;
+        case DEL_EML:
+            if (record->event.pressed) {
+                SEND_STRING("x#");
+            }
+            return false;
+        case ARC_EML:
+            if (record->event.pressed) {
+                SEND_STRING("xE");
+            }
+            return false;
+        case BRAVE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("brave");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case CALENDR:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("calendar");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case INTELIJ:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("intellij");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case ITERM:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("iterm");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case NOTION:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("notion");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case OUTLOOK:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("outlook");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case SIGNAL:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("signal");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case SPOTIFY:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("spotify");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case TEAMS:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("teams");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case TODOIST:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("firefox");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case VMWARE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("vmware");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case RMVIEW:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT("v"));
+                _delay_ms(100);
+                SEND_STRING("r");
+            }
+            return false;
+    }
   return true;
 }
