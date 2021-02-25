@@ -27,7 +27,8 @@ enum planck_layers {
   _ARROW,
   _INTJ,
   _MODS,
-  _APPS
+  _APPS,
+  _TODOIST
 };
 
 enum planck_keycodes {
@@ -50,13 +51,30 @@ enum planck_keycodes {
   TODOIST,
   UNANET,
   VMWARE,
-  RMVIEW
+  RMVIEW,
+  // Todoist shortcuts
+  T15MINS,
+  T2HRS,
+  T30MINS,
+  T4HRS,
+  T5MINS,
+  T60MINS,
+  TODAY,
+  TOMOROW,
+  WEEKEND,
+  NXTWEEK,
+  P1,
+  P2,
+  P3,
+  P4,
+  RESPOND
 };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
 #define MODS MO(_MODS)
+#define TODO MO(_TODOIST)
 
 #define ESCAPE LT(ARROW, KC_ESC)
 #define INTJ LT(MO(_INTJ), KC_F4)
@@ -177,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {TAB_ADJ,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC},
   { ESCAPE,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT},
   {KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT},
-  {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,   ALFRED, KC_DOWN,   KC_UP, KC_RGHT}
+  {   INTJ, KC_LCTL, KC_LALT, KC_LGUI,   LOWER,  KC_SPC, MODKEYS,   RAISE,   ALFRED, KC_DOWN,   KC_UP,    TODO}
 },
 
 /* Lower
@@ -307,7 +325,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {TERMNAL,   CTL_1,   CTL_2,   CTL_3,   CTL_4,   CTL_5,   CTL_6,   CTL_7,   CTL_8,   CTL_9,   CTL_0, _______ },
   {_______,   GUI_1,   GUI_2,   GUI_3,   GUI_4,   GUI_5,   GUI_6,   GUI_7,   GUI_8,   GUI_9,   GUI_0, _______ },
   {_______, _______, _______, _______, _______, ADDTODO, _______, _______, _______, _______, _______, _______ }
+},
+
+/* Todoist
+ * ,-----------------------------------------------------------------------------------.
+ * |      |15Mins|2Hours|30Mins|4Hours| 5Mins|60Mins| Today|Tomrrw|Weeknd|NxWeek|      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |Prty 1|Prty 2|Prty 3|Prty 4|      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |RspdTo|      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+
+[_TODOIST] = {
+  {_______, T15MINS,   T2HRS, T30MINS,   T4HRS,  T5MINS, T60MINS,   TODAY, TOMOROW, WEEKEND, NXTWEEK, _______ },
+  {_______,      P1,      P2,      P3,      P4, _______, _______, _______, _______, _______, _______, _______ },
+  {_______, RESPOND, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ },
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ }
 }
+
 };
 
 uint32_t layer_state_set_user(uint32_t state) {
@@ -435,6 +473,120 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("r");
             }
             return false;
+        case T15MINS:
+            if (record->event.pressed) {
+                SEND_STRING("@15mins");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case T2HRS:
+            if (record->event.pressed) {
+                SEND_STRING("@2hours");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case T30MINS:
+            if (record->event.pressed) {
+                SEND_STRING("@30mins");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case T4HRS:
+            if (record->event.pressed) {
+                SEND_STRING("@4hours");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case T5MINS:
+            if (record->event.pressed) {
+                SEND_STRING("@5mins");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case T60MINS:
+            if (record->event.pressed) {
+                SEND_STRING("@60mins");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case TODAY:
+            if (record->event.pressed) {
+                SEND_STRING("today");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case TOMOROW:
+            if (record->event.pressed) {
+                SEND_STRING("tomorrow");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case WEEKEND:
+            if (record->event.pressed) {
+                SEND_STRING("this weekend");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case NXTWEEK:
+            if (record->event.pressed) {
+                SEND_STRING("next week");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case P1:
+            if (record->event.pressed) {
+                SEND_STRING("!!1");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case P2:
+            if (record->event.pressed) {
+                SEND_STRING("!!2");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case P3:
+            if (record->event.pressed) {
+                SEND_STRING("!!3");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case P4:
+            if (record->event.pressed) {
+                SEND_STRING("!!4");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+            }
+            return false;
+        case RESPOND:
+            if (record->event.pressed) {
+                SEND_STRING("@15mins");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+                SEND_STRING("@communication");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+                SEND_STRING("!!1");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+                SEND_STRING("today");
+                _delay_ms(100);
+                SEND_STRING(SS_TAP(X_SPACE));
+                SEND_STRING("Respond to ");
+            }
     }
   return true;
 }
