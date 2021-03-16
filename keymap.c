@@ -35,7 +35,8 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   BACKLIT,
   EXT_PLV,
-  PW,
+  STRING1,
+  STRING2,
   DEL_EML,
   ARC_EML,
   BRAVE,
@@ -289,7 +290,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* IntelliJ (Fn)
  * ,-----------------------------------------------------------------------------------.
- * |      | Close|      |  End |Refctr|OpenIn|      |Usages|Prev_M|Outlin|      |  PW  |
+ * |      | Close|      |  End |Refctr|OpenIn|      |Usages|Prev_M|Outlin| Str1 | Str2 |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |HidWin|RnTgts|Symbol|DbugIt|Search|  Git |Hierar| Prev |Next_M| Next |FntRes|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -300,7 +301,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
  
 [_INTJ] = {
-  {_______,   CLOSE, _______,     END, REFACTR, GO2TEST, _______,  USAGES, PREVMTD, OUTLINE, _______, PW },
+  {_______,   CLOSE, _______,     END, REFACTR, GO2TEST, _______,  USAGES, PREVMTD, OUTLINE, STRING1, STRING2 },
   {HIDWINS, RUNTGTS,  SYMBOL,   DEBUG,    FIND,     GIT, HIERARC,    BACK, NEXTMTD, FORWARD, FONTRES, _______ },
   {_______,   RERUN, EXECUTE,  CREATE, EXT_VAR, MOREGIT, FNDFILE,    MENU, FONT_DN, FONT_UP,    INFO, _______ },
   {_______, _______, _______, _______, _______, _______, _______, _______, MTWLEFT, MTWDOWN,  MTW_UP, MTWRGHT }
@@ -361,9 +362,14 @@ void switch_to(char* app) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case PW:
+        case STRING1:
             if (record->event.pressed) {
-                SEND_STRING("PW_PLACEHOLDER");
+                SEND_STRING("STRING1_PLACEHOLDER");
+            }
+            return false;
+        case STRING2:
+            if (record->event.pressed) {
+                SEND_STRING("STRING2_PLACEHOLDER");
             }
             return false;
         case DEL_EML:
