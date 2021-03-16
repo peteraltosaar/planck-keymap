@@ -39,19 +39,17 @@ enum planck_keycodes {
   DEL_EML,
   ARC_EML,
   BRAVE,
-  CALENDR,
+  DISCORD,
+  FINDER,
   INTELIJ,
   ITERM,
-  MAIL,
+  MESAGES,
   NOTION,
-  OUTLOOK,
+  POCKET,
   SIGNAL,
   SPOTIFY,
-  TEAMS,
   TODOIST,
-  UNANET,
-  VMWARE,
-  RMVIEW,
+  VIVALDI,
   // Todoist shortcuts
   T15MINS,
   T2HRS,
@@ -246,27 +244,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {_______,   RESET, _______, _______, _______, TODOIST,   ITERM, TOPLEFT, TOPHALF, TOPRGHT, _______, _______},
-  {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, LFTHALF, FULLSCR, RGTHALF, _______, _______},
-  {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, BOTLEFT, BOTHALF, BOTRGHT, _______, _______},
+  {_______,   RESET, _______, _______, _______, _______, _______, TOPLEFT, TOPHALF, TOPRGHT, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, LFTHALF, FULLSCR, RGTHALF, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, BOTLEFT, BOTHALF, BOTRGHT, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
 /* App Shortcuts
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |Tdoist|iTerm |      |Intelj|Outlok|      |      |
+ * |      |      |      |      |      |Tdoist|iTerm |      |Intelj|      |Pocket|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |Signal|Calndr|      |      |      |      |      |      |      |      |
+ * |      |Mssges|Signal|Discrd|Finder|      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |Teams |VMWare|Brave |Notion|Sptify|      |      |      |      |
+ * |      |      |      |Teams |Vivldi|Brave |Notion|Sptify|      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_APPS] = {
-  {_______, _______, _______, _______, _______, TODOIST,   ITERM, _______, INTELIJ, OUTLOOK, _______, _______},
-  {_______, _______,  SIGNAL, CALENDR, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______,   TEAMS,  VMWARE,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, TODOIST,   ITERM, _______, INTELIJ, _______,  POCKET, _______},
+  {_______, MESAGES,  SIGNAL, DISCORD,  FINDER, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, VIVALDI,   BRAVE,  NOTION, SPOTIFY, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -285,7 +283,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ARROW] = {
   {_______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______, _______, DEL_EML,   KC_UP, ARC_EML, _______, ALTBSPC },
   {_______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______, ALTLEFT, KC_LEFT, KC_DOWN, KC_RGHT, ALTRGHT, _______ },
-  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_HOME,  KC_END, GUILEFT, _______, GUIRGHT, _______,  RMVIEW },
+  {_______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_HOME,  KC_END, GUILEFT, _______, GUIRGHT, _______, _______ },
   {_______, _______, _______, _______, _______, _______,  KC_APP, _______, _______,  ZOOMIN, ZOOMOUT, _______ }
 },
 
@@ -386,11 +384,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
-        case CALENDR:
+        case DISCORD:
             if (record->event.pressed) {
                 SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
                 _delay_ms(200);
-                SEND_STRING("calendar");
+                SEND_STRING("discord");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
+        case FINDER:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("finder");
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
@@ -410,6 +416,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
+        case MESAGES:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
+                _delay_ms(200);
+                SEND_STRING("messages");
+                SEND_STRING(SS_TAP(X_ENTER));
+            }
+            return false;
         case NOTION:
             if (record->event.pressed) {
                 SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
@@ -418,11 +432,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
-        case OUTLOOK:
+        case POCKET:
             if (record->event.pressed) {
                 SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
                 _delay_ms(200);
-                SEND_STRING("outlook");
+                SEND_STRING("pocket");
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
@@ -442,35 +456,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
-        case TEAMS:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
-                _delay_ms(200);
-                SEND_STRING("teams");
-                SEND_STRING(SS_TAP(X_ENTER));
-            }
-            return false;
         case TODOIST:
             if (record->event.pressed) {
                 SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
                 _delay_ms(200);
-                SEND_STRING("firefox");
+                SEND_STRING("opera");
                 SEND_STRING(SS_TAP(X_ENTER));
             }
             return false;
-        case VMWARE:
+        case VIVALDI:
             if (record->event.pressed) {
                 SEND_STRING(SS_LALT(SS_TAP(X_SPACE)));
                 _delay_ms(200);
-                SEND_STRING("vmware");
+                SEND_STRING("vivaldi");
                 SEND_STRING(SS_TAP(X_ENTER));
-            }
-            return false;
-        case RMVIEW:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT("v"));
-                _delay_ms(100);
-                SEND_STRING("r");
             }
             return false;
         case T15MINS:
