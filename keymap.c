@@ -77,7 +77,7 @@ enum planck_keycodes {
 
 #define ESCAPE LT(ARROW, KC_ESC)
 #define INTJ LT(MO(_INTJ), KC_F4)
-#define MODKEYS LT(MODS, KC_DEL)
+#define MODKEYS LT(MODS, KC_ENT)
 #define TAB_ADJ LT(MO(_APPS), KC_TAB)
 
 #define ADDTODO LGUI(LCTL(KC_A))
