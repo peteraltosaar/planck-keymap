@@ -66,7 +66,16 @@ enum planck_keycodes {
     P2,
     P3,
     P4,
-    RESPOND
+    RESPOND,
+    // Emoji
+    FACEPALM,
+    HAPPY,
+    MUSCLE,
+    NO,
+    SAD,
+    THINKING,
+    XFINGERS,
+    YES
 };
 
 #define LOWER MO(_LOWER)
@@ -176,24 +185,6 @@ enum planck_keycodes {
 #define BOTLEFT LGUI(LSFT(LCTL(KC_V)))
 #define BOTHALF LGUI(LSFT(LCTL(KC_B)))
 #define BOTRGHT LGUI(LSFT(LCTL(KC_N)))
-
-enum unicode_names {
-    FNGRS,
-    FP,
-    MSCLE,
-    SAD,
-    SMILE,
-    THINK
-};
-
-const uint32_t PROGMEM unicode_map[] = {
-        [FNGRS] = 0x1F91E,
-        [FP] = 0x1F926,
-        [MSCLE] = 0x1F4AA,
-        [SAD] = 0x1F641,
-        [SMILE] = 0x1F642,
-        [THINK] = 0x1F914
-};
 
 // @formatter:off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -377,9 +368,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_EMOJI] = {
-  { _______,  _______,  _______,  _______,  _______, X(THINK),  _______,   X(SAD),  _______,  _______,  _______,  _______},
-  { _______,  _______,  _______,  _______,    X(FP),  _______, X(SMILE),  _______,  _______,  _______,  _______, QUOTEMJI},
-  { _______,  _______,  _______, X(FNGRS),  _______,  _______,  _______, X(MSCLE),  _______,  _______,  _______,  _______},
+  { _______,  _______,  _______,  _______,  _______, THINKING,      YES,      SAD,  _______,  _______,  _______,  _______},
+  { _______,  _______,  _______,  _______, FACEPALM,  _______,    HAPPY,  _______,  _______,  _______,  _______, QUOTEMJI},
+  { _______,  _______,  _______, XFINGERS,  _______,  _______,       NO,   MUSCLE,  _______,  _______,  _______,  _______},
   { _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______}
 }
 
@@ -631,6 +622,62 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 _delay_ms(100);
                 SEND_STRING(SS_TAP(X_SPACE));
                 SEND_STRING("Respond to ");
+            }
+            return false;
+        case FACEPALM:
+            if (record->event.pressed) {
+                SEND_STRING("::facepalm::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case HAPPY:
+            if (record->event.pressed) {
+                SEND_STRING("::happy::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case MUSCLE:
+            if (record->event.pressed) {
+                SEND_STRING("::muscle::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case NO:
+            if (record->event.pressed) {
+                SEND_STRING("::no::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case SAD:
+            if (record->event.pressed) {
+                SEND_STRING("::sad::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case THINKING:
+            if (record->event.pressed) {
+                SEND_STRING("::thinking::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case XFINGERS:
+            if (record->event.pressed) {
+                SEND_STRING("::xfing::");
+                _delay_ms(100);
+                SEND_STRING(" ");
+            }
+            return false;
+        case YES:
+            if (record->event.pressed) {
+                SEND_STRING("::yes::");
+                _delay_ms(100);
+                SEND_STRING(" ");
             }
             return false;
     }
