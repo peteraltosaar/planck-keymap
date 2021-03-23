@@ -28,7 +28,8 @@ enum planck_layers {
     _INTJ,
     _MODS,
     _APPS,
-    _TODOIST
+    _TODOIST,
+    _EMOJI
 };
 
 enum planck_keycodes {
@@ -37,6 +38,7 @@ enum planck_keycodes {
     STRING2,
     DEL_EML,
     ARC_EML,
+    // App shortcuts
     BRAVE,
     DISCORD,
     FINDER,
@@ -71,12 +73,14 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 #define ARROW MO(_ARROW)
 #define MODS MO(_MODS)
-#define TODO MO(_TODOIST)
+#define EMOJI MO(_EMOJI)
 
 #define ESCAPE LT(ARROW, KC_ESC)
 #define INTJ LT(MO(_INTJ), KC_F4)
 #define MODKEYS LT(MODS, KC_ENT)
 #define TAB_ADJ LT(MO(_APPS), KC_TAB)
+#define TODO MO(_TODOIST)
+#define QUOTEMJI LT(EMOJI, KC_QUOT)
 
 #define ADDTODO LGUI(LCTL(KC_A))
 
@@ -173,6 +177,24 @@ enum planck_keycodes {
 #define BOTHALF LGUI(LSFT(LCTL(KC_B)))
 #define BOTRGHT LGUI(LSFT(LCTL(KC_N)))
 
+enum unicode_names {
+    FNGRS,
+    FP,
+    MSCLE,
+    SAD,
+    SMILE,
+    THINK
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+        [FNGRS] = 0x1F91E,
+        [FP] = 0x1F926,
+        [MSCLE] = 0x1F4AA,
+        [SAD] = 0x1F641,
+        [SMILE] = 0x1F642,
+        [THINK] = 0x1F914
+};
+
 // @formatter:off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -180,7 +202,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------------------------------------------.
  * |   Tab   |    Q    |    W    |    E    |    R    |    T    |    Y    |    U    |    I    |    O    |    P    |  Bksp   |
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------*---------|
- * |   Esc   |    A    |    S    |    D    |    F    |    G    |    H    |    J    |    K    |    L    |    ;    |    "    |
+ * |   Esc   |    A    |    S    |    D    |    F    |    G    |    H    |    J    |    K    |    L    |    ;    |" / Emoji|
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  * |  Shift  |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |    ,    |    .    |    /    |  Enter  |
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
@@ -189,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   { TAB_ADJ,     KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,      KC_I,     KC_O,     KC_P,  KC_BSPC},
-  {  ESCAPE,     KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,      KC_K,     KC_L,  KC_SCLN,  KC_QUOT},
+  {  ESCAPE,     KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,      KC_K,     KC_L,  KC_SCLN, QUOTEMJI},
   { KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,   KC_COMM,   KC_DOT,  KC_SLSH,   KC_ENT},
   {    INTJ,  KC_LCTL,  KC_LALT,  KC_LGUI,    LOWER,   KC_SPC,  MODKEYS,    RAISE,    ALFRED,  KC_DOWN,    KC_UP,     TODO}
 },
@@ -339,6 +361,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { _______,  T15MINS,    T2HRS,  T30MINS,    T4HRS,   T5MINS,  T60MINS,    TODAY, TOMORROW,  WEEKEND, NEXTWEEK,  _______},
   { _______,       P1,       P2,       P3,       P4,  _______,  _______,  _______,  _______,  _______,  _______,  _______},
   { _______,  RESPOND,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______},
+  { _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______}
+},
+
+/* Emoji
+ * ,-----------------------------------------------------------------------------------------------------------------------.
+ * |         |         |         |         |         |Thinking |         |   Sad   |         |         |         |         |
+ * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
+ * |         |         |         |         |Face Palm|         |  Smile  |         |         |         |         |         |
+ * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
+ * |         |         |         |XedFngers|         |         |         | Muscle  |         |         |         |         |
+ * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
+ * |         |         |         |         |         |         |         |         |         |         |         |         |
+ * `-----------------------------------------------------------------------------------------------------------------------'
+ */
+
+[_EMOJI] = {
+  { _______,  _______,  _______,  _______,  _______, X(THINK),  _______,   X(SAD),  _______,  _______,  _______,  _______},
+  { _______,  _______,  _______,  _______,    X(FP),  _______, X(SMILE),  _______,  _______,  _______,  _______, QUOTEMJI},
+  { _______,  _______,  _______, X(FNGRS),  _______,  _______,  _______, X(MSCLE),  _______,  _______,  _______,  _______},
   { _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______}
 }
 
