@@ -288,7 +288,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Arrow (Hold Escape)
  * ,-----------------------------------------------------------------------------------------------------------------------.
- * |         |         |         |         |         |         |         |DeleteEml|   Up    |ArchveEml|         |         |
+ * |         |         |         |         |         |         |         |DeleteEml|   Up    |ArchveEml|  Str1   |  Str2   |
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  * |         |DelWdLeft|Backspace| Delete  | DelWrd  |         |Left1Word|  Left   |  Down   |  Right  |Rght1Word|         |
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
@@ -299,7 +299,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_ARROW] = {
-  { _______,  _______,  _______,  _______,  _______,  _______,  _______,  DEL_EML,    KC_UP,  ARC_EML,  _______,  _______ },
+  { _______,  _______,  _______,  _______,  _______,  _______,  _______,  DEL_EML,    KC_UP,  ARC_EML,  STRING1,  STRING2 },
   { _______, BSP_WORD,  KC_BSPC,   KC_DEL, DEL_WORD,  _______,  ALTLEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT,  ALTRGHT,  _______ },
   { _______,  _______,  _______,  _______,  _______,  KC_HOME,   KC_END,  GUILEFT,  _______,  GUIRGHT,  _______,  _______ },
   { _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   ZOOMIN,  ZOOMOUT,  _______ }
@@ -307,7 +307,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* IntelliJ (Fn)
  * ,-----------------------------------------------------------------------------------------------------------------------.
- * |         |  Close  |OpenInPrj|Stop Run |Refactor |GoTo Test|         | Usages  |PrevMethd| Outline |  Str1   |  Str2   |
+ * |         |  Close  |         |Stop Run |Refactor |GoTo Test|         | Usages  |PrevMethd| Outline |OpenInPrj|         |
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  * |HidWndows|RunTargts| Symbol  |  Debug  |  Find   |   Git   |Hierarchy|Nav Back |NextMethd|NavForwrd|ResetFont|MuteBrkPt|
  * |---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
@@ -318,7 +318,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_INTJ] = {
-  { _______,    CLOSE, OPNINPRJ,      END,  REFACTR,  GO2TEST,  _______,   USAGES,  PREVMTD,  OUTLINE,  STRING1,  STRING2},
+  { _______,    CLOSE,  _______,      END,  REFACTR,  GO2TEST,  _______,   USAGES,  PREVMTD,  OUTLINE, OPNINPRJ,  _______},
   { HIDWINS,  RUNTGTS,   SYMBOL,    DEBUG,     FIND,      GIT,  HIERARC,     BACK,  NEXTMTD,  FORWARD,  FONTRES, MUTEBKPT},
   { _______,    RERUN,  EXECUTE,   CREATE,  EXT_VAR,  MOREGIT,  FNDFILE,     MENU,  FONT_DN,  FONT_UP,     INFO,  _______},
   { _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  MTWLEFT,  MTWDOWN,   MTW_UP,  MTWRGHT}
