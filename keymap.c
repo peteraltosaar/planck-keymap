@@ -300,7 +300,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ARROW] = {
   { _______,  _______,  _______,  _______,  _______,  _______,  _______,  DEL_EML,    KC_UP,  ARC_EML,  _______,  _______ },
-  { _______,  BSPCWRD,  KC_BSPC,   KC_DEL,  DELWORD,  _______,  ALTLEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT,  ALTRGHT,  _______ },
+  { _______, BSP_WORD,  KC_BSPC,   KC_DEL, DEL_WORD,  _______,  ALTLEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT,  ALTRGHT,  _______ },
   { _______,  _______,  _______,  _______,  _______,  KC_HOME,   KC_END,  GUILEFT,  _______,  GUIRGHT,  _______,  _______ },
   { _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   ZOOMIN,  ZOOMOUT,  _______ }
 },
