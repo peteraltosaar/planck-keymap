@@ -139,7 +139,7 @@ enum planck_keycodes {
 
 // MacOS Shortcuts
 #define ALFRED LALT(KC_SPACE)
-#define ZOOMIN LGUI(KC_PLUS)
+#define ZOOMIN LGUI(KC_EQL)
 #define ZOOMOUT LGUI(KC_MINS)
 #define BSP_WORD LALT(KC_BSPC)
 #define DEL_WORD LALT(KC_DEL)
