@@ -1,1 +1,6 @@
+# Vim files
 .keymap.c.swp
+.make-firmware.sh.swp
+
+# CLion files
+.idea/
